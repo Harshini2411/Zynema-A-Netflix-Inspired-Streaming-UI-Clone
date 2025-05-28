@@ -1,0 +1,53 @@
+/* index.css */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+
+.logoutBar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #141414;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid #333;
+}
+
+.logoutBar button {
+  background-color: #e50914;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logoutBar button:hover {
+  background-color: #f40612;
+}
+
+/* Row titles */
+.row_title {
+  color: #111;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
