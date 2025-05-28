@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -69,7 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# Zynema-A-Netflix-Inspired-Streaming-UI-Clone
-🍿Zynema is a Netflix-style React app that fetches movies from TMDB, displays them in rows, and plays trailers via YouTube. It uses Axios, React hooks, and dynamic components for a smooth, responsive UI. Ideal for learning API integration and modern frontend design.
->>>>>>> c2672a1f0d7693fcf2596ae7a329662f9676504c

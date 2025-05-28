@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "zynema-afceb",
+    "zynema": "zynema-afceb"
+  },
+  "targets": {},
+  "etags": {}
+}
