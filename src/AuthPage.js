@@ -25,7 +25,9 @@ function AuthPage() {
         );
         const movies = res.data.results;
         const randomMovie = movies[Math.floor(Math.random() * movies.length)];
-        setBgMovie(`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`);
+        setBgMovie(
+          `https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`
+        );
       } catch (err) {
         console.error("Failed to load background movie", err);
       }
@@ -40,7 +42,11 @@ function AuthPage() {
 
     try {
       if (isRegister) {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
         await updateProfile(userCredential.user, {
           displayName: username,
         });
