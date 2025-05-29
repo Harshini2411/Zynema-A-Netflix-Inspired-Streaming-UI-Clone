@@ -220,9 +220,6 @@ Launches the test runner in interactive watch mode.
 
 [▶️ Watch the demo video](zynema_app.mp4)
 
-
----
-
 ---
 ## 🎥Zynema - Final Deployment
 *[https://zynema-afceb.web.app/](https://zynema-afceb.web.app/)*
@@ -231,7 +228,5 @@ Launches the test runner in interactive watch mode.
 ## 📄 License
 
 This project is open-source under the [MIT License](LICENSE).
-
-```
 
 
