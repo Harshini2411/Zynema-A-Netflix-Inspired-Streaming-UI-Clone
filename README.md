@@ -1,5 +1,3 @@
----
-
 # 🎬 Zynema - A Netflix-Inspired Streaming UI Clone
 
 **Zynema** is a visually captivating Netflix-style movie streaming platform built with **React.js**. It fetches real-time movie data from the **TMDb API**, integrates **YouTube trailers**, and leverages **Firebase Authentication and Firestore** to manage users and securely store data.
@@ -227,7 +225,7 @@ Launches the test runner in interactive watch mode.
 
 ---
 ## 🎥Zynema - Final Deployment
-** [https://zynema-afceb.web.app/](https://zynema-afceb.web.app/) **
+*[https://zynema-afceb.web.app/](https://zynema-afceb.web.app/)*
 ---
 
 ## 📄 License
