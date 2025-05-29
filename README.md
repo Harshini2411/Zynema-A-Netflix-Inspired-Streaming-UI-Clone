@@ -1,75 +1,239 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🎬 Zynema - A Netflix-Inspired Streaming UI Clone
 
-## Available Scripts
+**Zynema** is a visually captivating Netflix-style movie streaming platform built with **React.js**. It fetches real-time movie data from the **TMDb API**, integrates **YouTube trailers**, and leverages **Firebase Authentication and Firestore** to manage users and securely store data.
 
-In the project directory, you can run:
+This project aims to demonstrate full-stack skills, including frontend design, API integration, authentication, database management, and modular component architecture. Ideal for developers building portfolio-grade clones.
+
+---
+
+## 🔥 Key Features
+
+- 🔐 **User Authentication** using Firebase (Email & Password)
+- 🧾 **User Data Storage** using Firestore (for session-based features)
+- 🎞️ **Movie Streaming UI** powered by The Movie Database (TMDb) API
+- 📼 **Trailer Preview** via embedded YouTube videos
+- ⚛️ Built with React, using functional components and hooks
+- ⚙️ Axios-based API client for clean TMDb requests
+- 📱 Fully responsive design mimicking Netflix's layout
+- 🖼️ Avatar + User Profile integration with `assets/` directory
+- 🔄 Auto reloads on changes (with `npm start`)
+- 📁 Organized and scalable codebase with modular components
+
+---
+
+## 📁 Project Structure
+
+```
+
+netflix-clone/
+├── public/
+│   └── index.html                      # Entry point
+├── src/
+│   ├── assets/
+│   │   └── zynema\_avatar.png          # Avatar used in header/profile
+│   ├── components/
+│   │   ├── Banner.js                  # Top hero section
+│   │   ├── Row\.js                     # Movie row component
+│   │   ├── Nav.js                     # Top navbar
+│   │   └── AuthPage.js                # Login/Signup UI
+│   ├── firebase.js                    # Firebase config and exports
+│   ├── axios.js                       # Axios instance for TMDb API
+│   ├── App.js                         # Main router & layout logic
+│   ├── styles/
+│   │   ├── AuthPage.css               # Styles for login/signup
+│   │   └── ...
+│   └── index.js                       # ReactDOM rendering entry
+├── .firebaserc
+├── package.json
+└── README.md
+
+````
+
+---
+
+## 🔧 Firebase Setup and Usage
+
+### Step 1: Create Firebase Project
+- Go to [Firebase Console](https://console.firebase.google.com/)
+- Create a new project and register a Web App
+
+### Step 2: Enable Email & Password Authentication
+- Navigate to **Authentication > Sign-in Method**
+- Enable **Email/Password**
+
+### Step 3: Configure Firestore Database
+- Go to **Firestore Database** in the sidebar
+- Click **Create Database** (start in test mode for development)
+
+### Step 4: Add Firebase Config
+
+Inside `src/firebase.js`:
+
+```js
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "your-app.firebaseapp.com",
+  projectId: "your-app",
+  storageBucket: "your-app.appspot.com",
+  messagingSenderId: "SENDER_ID",
+  appId: "APP_ID",
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+````
+
+---
+
+## 🧠 Firestore Structure
+
+```plaintext
+users (collection)
+├── <uid> (document)
+│   └── email: "user@example.com"
+│   └── displayName: "Harshini"
+│   └── createdAt: Timestamp
+```
+
+This structure allows you to store and manage user-related data securely and efficiently.
+
+---
+
+## 🎞️ TMDb API Integration
+
+* Signup at [TMDb](https://www.themoviedb.org/)
+* Generate an API key in your account settings
+* Add it to `axios.js` as follows:
+
+```js
+import axios from "axios";
+
+const instance = axios.create({
+  baseURL: "https://api.themoviedb.org/3",
+  params: {
+    api_key: "YOUR_TMDB_API_KEY",
+  },
+});
+
+export default instance;
+```
+
+---
+
+## 📦 Installation Guide
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/netflix-clone.git
+cd netflix-clone
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the App Locally
+
+```bash
+npm start
+```
+
+App is now available at: **[http://localhost:3000](http://localhost:3000)**
+
+---
+
+## 📤 Production Build
+
+To build the project for production:
+
+```bash
+npm run build
+```
+
+This will generate an optimized `build/` folder that can be deployed to Firebase Hosting, Vercel, Netlify, or any static host.
+
+---
+
+## 🧪 Testing
+
+Run tests with:
+
+```bash
+npm test
+```
+
+---
+
+## 💡 Future Enhancements
+
+* 🧠 Personalized movie recommendations (using ML/LLMs)
+* 🌙 Dark/Light Theme Toggle
+* 📺 User Watch History
+* 📌 Add to Watchlist (stored in Firestore)
+* 🔍 Search movies by genre, actor, or title
+* 📱 Mobile-first UI improvements
+
+---
+
+## 📚 Resources
+
+* [React Docs](https://reactjs.org/)
+* [Firebase Docs](https://firebase.google.com/docs)
+* [TMDb API Docs](https://developers.themoviedb.org/3)
+* [YouTube IFrame Player API](https://developers.google.com/youtube/iframe_api_reference)
+
+---
+
+## 🛠 CRA Scripts Reference
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the app in development mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Bundles the app for production.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run test`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Launches the test runner in interactive watch mode.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Note:** Irreversible! Copies all configs (Webpack, Babel, ESLint, etc.) to your project folder.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📸 Screenshots
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img width="959" alt="sign_up" src="https://github.com/user-attachments/assets/a3829bf7-2bc5-470e-b44b-1a2de363c5ef" />
 
-## Learn More
+<img width="959" alt="sign_in" src="https://github.com/user-attachments/assets/4d61693d-2459-41b5-bedd-7dc96ddc0e14" />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[▶️ Watch the demo video](zynema_app.mp4)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
+## 🎥Zynema - Final Deployment
+** [https://zynema-afceb.web.app/](https://zynema-afceb.web.app/) **
+---
 
-### Analyzing the Bundle Size
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This project is open-source under the [MIT License](LICENSE).
 
-### Making a Progressive Web App
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# Zynema-A-Netflix-Inspired-Streaming-UI-Clone
-🍿Zynema is a Netflix-style React app that fetches movies from TMDB, displays them in rows, and plays trailers via YouTube. It uses Axios, React hooks, and dynamic components for a smooth, responsive UI. Ideal for learning API integration and modern frontend design.
->>>>>>> c2672a1f0d7693fcf2596ae7a329662f9676504c
