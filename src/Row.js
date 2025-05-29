@@ -35,26 +35,26 @@ function Row({ title, fetchURL, isLargeRow }) {
     fetchData();
   }, [fetchURL]);
 
-  const opts={
-  height:"390",
-  width:"100%",
-  playerVars:{
-  autoplay:1,
-  },
+  const opts = {
+    height: "390",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+    },
   };
 
-const handleClick = (movie)=>{
-if(trailerUrl){
-setTrailerUrl('');
-}
-else{
-movieTrailer(movie?.name || movie?.title || movie?.original_name || "")
-.then(url=>{
-const urlParams= new URLSearchParams(new URL(url).search);
-setTrailerUrl(urlParams.get('v'));
-}).catch(error=>console.log(error));
-}
-};
+  const handleClick = (movie) => {
+    if (trailerUrl) {
+      setTrailerUrl("");
+    } else {
+      movieTrailer(movie?.name || movie?.title || movie?.original_name || "")
+        .then((url) => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          setTrailerUrl(urlParams.get("v"));
+        })
+        .catch((error) => console.log(error));
+    }
+  };
 
   return (
     <div className="row">
@@ -64,7 +64,7 @@ setTrailerUrl(urlParams.get('v'));
         {movies.map((movie) => (
           <img
             key={movie.id}
-            onClick={()=>handleClick(movie)}
+            onClick={() => handleClick(movie)}
             className={`row_poster ${isLargeRow && "row_posterLarge"}`}
             src={`${base_URL}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
@@ -73,7 +73,7 @@ setTrailerUrl(urlParams.get('v'));
           />
         ))}
       </div>
-      {trailerUrl && <Youtube videoId={trailerUrl} opts={opts}/>}
+      {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 // src/AuthPage.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import zynemalogo from "./assets/zynema_avatar.png";
 import { auth } from "./firebase";
 import {
   createUserWithEmailAndPassword,
@@ -76,6 +77,7 @@ function AuthPage() {
     >
       <div className="auth__overlay"></div>
       <div className="auth__container">
+        <img src={zynemalogo} alt="Zynema Logo" className="auth_logo" />
         <h1>{isRegister ? "Sign Up" : "Sign In"}</h1>
         {error && <p className="auth__error">{error}</p>}
         <form onSubmit={handleSubmit}>

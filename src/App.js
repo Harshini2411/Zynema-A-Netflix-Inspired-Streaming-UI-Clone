@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
 import { auth } from "./firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
@@ -59,7 +65,7 @@ function MainPage({ user }) {
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-       window.location.href='/login';
+        window.location.href = "/login";
       })
       .catch((error) => {
         console.error("Logout error:", error);
@@ -70,9 +76,13 @@ function MainPage({ user }) {
     <>
       <Nav user={user} onLogout={handleLogout} />
       <Banner />
-      <Row title="Netflix Originals" fetchURL={requests.fetchNetflixOriginals} isLargeRow />
+      <Row
+        title="Zynema Exclusives"
+        fetchURL={requests.fetchNetflixOriginals}
+        isLargeRow
+      />
       <Row title="Trending Now" fetchURL={requests.fetchTrending} />
-      <Row title="Top Rated" fetchURL={requests.fetchTopRated} />
+      <Row title="Top Charts" fetchURL={requests.fetchTopRated} />
       <Row title="Action Movies" fetchURL={requests.fetchActionMovies} />
       <Row title="Comedy Movies" fetchURL={requests.fetchComedyMovies} />
       <Row title="Horror Movies" fetchURL={requests.fetchHorrorMovies} />
